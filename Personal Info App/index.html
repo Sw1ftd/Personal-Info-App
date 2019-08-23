@@ -1,0 +1,132 @@
+<html>
+<head>
+    <style type="text/css">
+        body {
+            background-color: black;
+            color: white;
+            text-align : center; 
+        }
+        div {
+            margin : 1px auto;
+            padding : 0px;
+        }
+        div.info {
+            width : 20%;
+            background-color: red;
+            border : 2px solid white;
+        }
+        div.para {
+            width : 50%;
+            background-color: blue;
+            border : 2px solid white;
+        }
+        
+        div.clicked {
+            background-color: black;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Personal Info App</h1>
+    <img src="playbutton.png" width=200- height=200 id="img1">
+    <div class="para">
+    <h3>My Summer:</h3>
+    <p>This summer all I did was sleep, eat, and play games.</p>
+    </div>
+    
+    <div class="para">
+    <h3>Ideal Future Job</h3>
+    <p>I want to be a programmer either making games or program that I can be proud of.</p>
+    </div>
+    
+    <div class="para">
+    <h3>Plans After High School:</h3>
+    <p>I'm going to chill for awhile while trying to find a job with my programming skills. If I don't then I'm going to go to college to get a degree so I can get a better chance at getting a job.</p>
+    </div>
+    
+    <div class="para">
+    <h3>Family Members</h3>
+    <p>There's me, my Dad, my mother, my 2 sisters, and my 2 dogs. </p>
+    </div>
+    <script>
+        //let name = "David Rison"
+        //let age = 16
+        let person = {
+            //key : value
+            "firstName" : "David",
+            "lastName" : "Rison",
+            "age" : 16,
+            "height" : "5ft 11in",
+            "favColor" : "Black",
+            "siblings" : ["Faith"," Hope"],
+            "favSubject" : "Math",
+            "favGames" : ["Ark"," Rust"," Starcraft 2",],
+            
+        }
+        /*let element = document.createElement('h3')
+        element.innerHTML = person.firstName
+        document.body.appendChild(element)*/
+        
+        let element = document.createElement('div')
+        element.classList.add('info')
+        element.innerHTML = `<h3>Name:</h3> ${person.firstName} ${person.lastName}`
+        document.body.appendChild(element)
+        
+        element = document.createElement('div')
+        element.classList.add('info')
+        element.innerHTML = `<h3>Age:</h3> ${person.age}`
+        document.body.appendChild(element)
+        
+        element = document.createElement('div')
+        element.classList.add('info')
+        element.innerHTML = `<h3>Height:</h3> ${person.height}`
+        document.body.appendChild(element)
+        
+        element = document.createElement('div')
+        element.classList.add('info')
+        element.innerHTML = `<h3>Favorite Color:</h3> ${person.favColor}`
+        document.body.appendChild(element)
+        
+        element = document.createElement('div')
+        element.classList.add('info')
+        element.innerHTML = `<h3>Siblings:</h3> ${person.siblings}`
+        document.body.appendChild(element)
+        
+        element = document.createElement('div')
+        element.classList.add('info')
+        element.innerHTML = `<h3>Favorite Subject:</h3> ${person.favSubject}`
+        document.body.appendChild(element)
+        
+        element = document.createElement('div')
+        element.classList.add('info')
+        element.innerHTML = `<h3>Favorite Games:</h3> ${person.favGames}`
+        document.body.appendChild(element)
+        
+        //Get a reference to elements on the page
+        let divs = document.querySelectorAll('div');
+        for( var i = 0; i < divs.length; i++) {
+            let div = divs[i];
+            div.addEventListener('click',handleClick);
+        }
+        function handleClick(event) {
+            //event.target.style.backgroundColor = "green";
+            event.target.classList.toggle('clicked');
+        }
+        
+        document.querySelector('#img1').addEventListener('click', handleImgClick);
+        function handleImgClick(event) {
+            if(event.target.width == 200){
+                event.target.width = 100;
+            }
+            else event.target.width = 200;
+            if(event.target.height == 200){
+                event.target.height = 100;
+            }
+            else event.target.height = 200;
+        }
+        
+    </script>
+    <img src="bridge.png" id="img2">
+</body>
+</html>
